@@ -15,6 +15,15 @@ on:
   pull_request:
     branches: [ "master" ]
 
+  workflow_dispatch:
+    inputs:
+      deployment:
+        description: 'deployment'
+        required: true
+        type: choice
+        options: [ on-cloud, on-prem ]
+        default: on-cloud
+
 jobs:
   build:
     runs-on: ubuntu-latest
